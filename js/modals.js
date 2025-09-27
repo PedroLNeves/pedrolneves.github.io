@@ -1,6 +1,7 @@
 // Populate a given section with selected portfolio items
 function populateSection(containerSelector, itemIds) {
     const sectionGrid = document.querySelector(`${containerSelector} .row`);
+    if (!sectionGrid) return;
     sectionGrid.innerHTML = ""; // Clear first
 
     itemIds.forEach(id => {
@@ -24,24 +25,10 @@ function populateSection(containerSelector, itemIds) {
     });
 }
 
-// Call population for each section
-document.addEventListener("DOMContentLoaded", () => {
-    // Fill Highlighted Projects
-    populateSection("#portfolio", highlights);
-
-    // Fill Games
-    populateSection("#misc", games);
-
-    // Fill Other
-    populateSection("#other", other);
-
-    // Generate all modals once
-    generatePortfolioModals();
-});
-
 // Generate the portfolio grid with short descriptions
 function generatePortfolioGrid() {
     const portfolioGrid = document.querySelector("#portfolio .row");
+    if (!portfolioGrid) return;
     portfolioGrid.innerHTML = ""; // Clear existing items
 
     portfolioItems.forEach((item) => {
@@ -71,88 +58,87 @@ function generatePortfolioModals() {
             .map((media, index) => {
                 if (media.type === "image") {
                     return `<div class="carousel-item ${index === 0 ? "active" : ""}">
-                    <img src="${media.src
-                        }" class="d-block w-100 thumb-img" data-type="image" data-src="${media.src
-                        }" alt="">
-                  </div>`;
+                        <img src="${media.src}" class="d-block w-100 thumb-img" 
+                             data-type="image" data-src="${media.src}" alt="">
+                    </div>`;
                 } else {
                     return `<div class="carousel-item ${index === 0 ? "active" : ""}">
-                    <video class="d-block w-100 thumb-img" data-type="video" data-src="${media.src
-                        }" muted>
-                      <source src="${media.src}" type="video/mp4">
-                    </video>
-                  </div>`;
+                        <video class="d-block w-100 thumb-img" data-type="video" 
+                               data-src="${media.src}" muted>
+                          <source src="${media.src}" type="video/mp4">
+                        </video>
+                    </div>`;
                 }
             })
             .join("");
 
         const mainMediaHTML =
             item.mainMedia.type === "image"
-                ? `<img id="main-${item.id}" src="${item.mainMedia.src}" class="img-fluid mb-3" alt="${item.title}">`
+                ? `<img id="main-${item.id}" src="${item.mainMedia.src}" 
+                        class="img-fluid mb-3" alt="${item.title}">`
                 : `<video id="main-${item.id}" class="img-fluid mb-3" controls>
-             <source src="${item.mainMedia.src}" type="video/mp4">
-           </video>`;
+                     <source src="${item.mainMedia.src}" type="video/mp4">
+                   </video>`;
 
-        // Generate indicators
         const indicatorsHTML = item.gallery
             .map(
                 (_, index) => `
-    <button type="button" data-bs-target="#thumbCarousel-${item.id
-                    }" data-bs-slide-to="${index}" class="${index === 0 ? "active" : ""
-                    }" aria-current="${index === 0 ? "true" : "false"}" aria-label="Slide ${index + 1
-                    }"></button>
-  `
+                <button type="button" data-bs-target="#thumbCarousel-${item.id}"
+                    data-bs-slide-to="${index}" 
+                    class="${index === 0 ? "active" : ""}" 
+                    aria-current="${index === 0 ? "true" : "false"}" 
+                    aria-label="Slide ${index + 1}"></button>`
             )
             .join("");
 
-        // Then in modalHTML
         const modalHTML = `
     <div class="portfolio-modal modal fade" id="${item.id}" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
+      <div class="modal-dialog modal-xl">
         <div class="modal-content">
-        <div class="modal-header border-0">
+          <div class="modal-header border-0">
             <button class="btn-close" type="button" data-bs-dismiss="modal"></button>
-        </div>
-        <div class="modal-body text-center pb-5">
+          </div>
+          <div class="modal-body text-center pb-5">
             <div class="container">
-            <div class="row justify-content-center">
+              <div class="row justify-content-center">
                 <div class="col-lg-8">
-                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-3">${item.title}</h2>
-                <div class="divider-custom"><div class="divider-custom-line"></div></div>
+                  <h2 class="portfolio-modal-title text-secondary text-uppercase mb-3">${item.title}</h2>
+                  <div class="divider-custom"><div class="divider-custom-line"></div></div>
 
-                ${mainMediaHTML}
+                  ${mainMediaHTML}
 
-                <div id="thumbCarousel-${item.id}" class="carousel slide" data-bs-ride="carousel">
+                  <div id="thumbCarousel-${item.id}" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-indicators">
-                    ${indicatorsHTML}
+                      ${indicatorsHTML}
                     </div>
 
                     <div class="carousel-inner row row-cols-3 g-2">
-                    ${thumbnailsHTML}
+                      ${thumbnailsHTML}
                     </div>
 
-                    <button class="carousel-control-prev" type="button" data-bs-target="#thumbCarousel-${item.id}" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
+                    <button class="carousel-control-prev" type="button" 
+                            data-bs-target="#thumbCarousel-${item.id}" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#thumbCarousel-${item.id}" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
+                    <button class="carousel-control-next" type="button" 
+                            data-bs-target="#thumbCarousel-${item.id}" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
                     </button>
-                </div>
+                  </div>
 
-                <p class="mt-3 mb-4">${item.description}</p>
-                <button class="btn btn-primary" data-bs-dismiss="modal">
+                  <p class="mt-3 mb-4">${item.description}</p>
+                  <button class="btn btn-primary" data-bs-dismiss="modal">
                     <i class="fas fa-xmark fa-fw"></i> Close Window
-                </button>
+                  </button>
                 </div>
+              </div>
             </div>
-            </div>
+          </div>
         </div>
-        </div>
-    </div>
-    </div>
-    `;
+      </div>
+    </div>`;
 
         modalContainer.insertAdjacentHTML("beforeend", modalHTML);
 
@@ -163,9 +149,11 @@ function generatePortfolioModals() {
                 const type = thumb.dataset.type;
                 const src = thumb.dataset.src;
                 const previewContent = document.getElementById("previewContent");
-                previewContent.innerHTML = "";
+                if (!previewContent) return;
 
+                previewContent.innerHTML = "";
                 let newMedia;
+
                 if (type === "image") {
                     newMedia = document.createElement("img");
                     newMedia.src = src;
@@ -178,57 +166,37 @@ function generatePortfolioModals() {
                     source.src = src;
                     source.type = "video/mp4";
                     newMedia.appendChild(source);
-                    newMedia.load();
                 }
                 previewContent.appendChild(newMedia);
 
-                const previewModal = new bootstrap.Modal(
-                    document.getElementById("previewModal")
-                );
+                const previewModalEl = document.getElementById("previewModal");
+                if (!previewModalEl) return;
+
+                const previewModal = new bootstrap.Modal(previewModalEl);
                 previewModal.show();
 
                 const backdrop = document.createElement("div");
                 backdrop.className = "modal-backdrop preview-modal-backdrop fade show";
                 document.body.appendChild(backdrop);
 
-                const previewModalEl = document.getElementById("previewModal");
-
-                // Function to remove the custom backdrop
                 function removePreviewBackdrop() {
                     const backdrop = document.querySelector(".preview-modal-backdrop");
                     if (backdrop) backdrop.remove();
                 }
 
-                // Attach listener to modal hide
-                previewModalEl.addEventListener(
-                    "hidden.bs.modal",
-                    removePreviewBackdrop
-                );
+                previewModalEl.addEventListener("hidden.bs.modal", removePreviewBackdrop);
 
-                // Also attach close button to be safe
-                const closeBtn = previewModalEl.querySelector(
-                    ".btn[data-bs-dismiss='modal']"
-                );
-                closeBtn.addEventListener("click", removePreviewBackdrop);
+                const closeBtn = previewModalEl.querySelector(".btn[data-bs-dismiss='modal']");
+                if (closeBtn) closeBtn.addEventListener("click", removePreviewBackdrop);
             });
         });
     });
 }
 
-// Initialize everything on DOM ready
+// Initialize everything once DOM is ready
 document.addEventListener("DOMContentLoaded", () => {
-    document.addEventListener("DOMContentLoaded", () => {
-        // Fill Highlighted Projects
-        populateSection("#portfolio", highlights);
-
-        // Fill Games
-        populateSection("#misc", games);
-
-        // Fill Other
-        populateSection("#other", other);
-
-        // Generate only the modals (we don’t call generatePortfolioGrid anymore)
-        generatePortfolioModals();
-    });
-
+    populateSection("#portfolio", highlights);
+    populateSection("#games", games);
+    populateSection("#misc", other);
+    generatePortfolioModals();
 });
