@@ -23,6 +23,14 @@
   margin-bottom: 1rem;
 }
 
+.carousel-item img,
+.carousel-item video {
+  max-width: 50%;
+  max-height: 300px;
+  display: block;
+  margin: 0 auto; /* centers content */
+}
+
 @keyframes spin {
   to { transform: rotate(360deg); }
 }
