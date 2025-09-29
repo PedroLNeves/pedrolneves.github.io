@@ -8,6 +8,14 @@ function populateSection(containerSelector, itemIds) {
     const item = portfolioItems.find((p) => p.id === id);
     if (!item) return; // skip if not found
 
+    const tagsHTML = item.tags
+      ?.map((tag) => {
+        // sanitize class names for CSS
+        const safeClass = tag.toLowerCase().replace(/[^a-z0-9]/g, "-");
+        return `<span class="tag-square ${safeClass}">${tag}</span>`;
+      })
+      .join("");
+
     const gridItem = `
       <div class="col-md-6 col-lg-4 mb-1">
         <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#${item.id}">
@@ -16,7 +24,10 @@ function populateSection(containerSelector, itemIds) {
               ${item.title}
             </div>
           </div>
-          <img class="img-fluid" src="${item.thumbnail?.src}" alt="${item.title}" />
+          <img class="img-fluid mb-2" src="${item.thumbnail?.src}" alt="${item.title}" />
+        </div>
+                <div class="d-flex flex-wrap justify-content-center gap-1 mb-2">
+          ${tagsHTML}
         </div>
         <p class="text-center mt-2">${item.shortDescription}</p>
       </div>
