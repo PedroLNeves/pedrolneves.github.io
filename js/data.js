@@ -14,18 +14,20 @@ const portfolioItems = [
     ],
     tags: ["Game", "Unity", "WebGL", "Jam", "48h", "3rd"],
     shortDescription:
-      "Jailbreaker is a 2.5D Action Platformer, developed entirely in 48 hours for the MadJam 2024, where you can manipulate annoying pop-ups as platforms",
-    description: `This game was entirely developed in <u>48 hours</u> for the MAD Game Jam 2024 with a <u>team of 3</u>, the themes were gradually introduced as follows: "<u>Limited Space</u>", "<u>Organization</u>" and "<u>Sex Drugs OR Rock'n'Roll</u>"
-      <p>In this 2.5D Action Platformer the player has to find weaknesses on the system to gradually crash it until it shuts down entirely</p>
-      <p>As the system gets corrupted more and more annoying pop-ups appear, these can crush the player, or be manipulated as platforms to reach the goal</p>
-      <p><u><b>In this project I tackled the following roles:</b></u></p>
-      <p>-<u>Directing</u> the project as group leader.</p>
-      <p>-<u>Modelling</u> and <u>animating</u> the playable character.</p>
-      <p>-Implementing the <u>core loop</u> of the game (Pickups, screens shutting down, death...).</p>
-      <p>-Developing the <u>multi-screen system</u> via cameras and render textures.</p>
-      <p>-Coding the pop-up spawning logic and associated visuals.</p>
-      <p>-Polishing the visuals with <u>particle systems</u> and <u>Post Processing</u>.</p>
-      <p>-Modelling, texturing and animating the tutorial post-its.</p>`,
+      "A 2.5D action platformer made in 48 hours for the MAD Game Jam 2024. Players crash the system by exploiting weaknesses while manipulating pop-ups as hazards or platforms.",
+    description: `<h3><b><u>CONTEXT</u></b></h3>
+    <p><b>MAD Game Jam 2024 - 48 hours, team of 3</b></p>
+    <p style="margin-top: -1rem;"><i>Themes: Limited Space, Organization, Sex/Drugs/Rock'n'Roll</i></p>
+    <h3><b><u>GAME</u></b></h3>
+    <p>A 2.5D action platformer where players exploit system weaknesses to crash it. As corruption spreads, pop-ups spawn, crushing the player or serving as improvised platforms.</p>
+      <h3><u><b>CONTRIBUTION</b></u></h3>
+      <p></i><u>Directed</u> the project as team lead.</p>
+      <p></i><u>Modeled</u> and <u>animated</u> the main character.</p>
+      <p></i>Built the <u>core gameplay loop</u> (Pickups, screen shut down, death logic).</p>
+      <p></i>Developed the <u>multi-screen system</u> using cameras and render textures.</p>
+      <p></i>Implemented the pop-up spawning mechanics and visuals.</p>
+      <p></i>Polished visuals with <u>particle systems</u> and <u>post-processing</u>.</p>
+      <p></i>Created and animated tutorial post-its assets.</p>`,
   },
   {
     id: "SweetStakes",
@@ -40,7 +42,7 @@ const portfolioItems = [
       { type: "image", src: "assets/img/portfolio/SweetStakes/Screenshot_5.png" },
       { type: "image", src: "assets/img/portfolio/SweetStakes/Screenshot_6.png" },
     ],
-    tags: ["Game", "Unity", "Jam"],
+    tags: ["Game", "Unity", "WebGL", "Jam"],
     shortDescription:
       "Sweet Stakes is a 3D Bullet Heaven with roguelite elements developed entirely in 1 week for the Brackeys Game Jam 2025",
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit...",

@@ -14,16 +14,19 @@
 
 /* specific tag colors */
 .tag-square.game {
-  background-color: #4caf50;
+  background-color: #dc3a27;
 }
 .tag-square.unity {
   background-color: #f7df1e;
 } /* for C# */
 .tag-square.jam {
-  background-color: #ff9800;
+  background-color: #9300b5;
 }
 .tag-square.webgl {
-  background-color: #9300b5;
+  background-color: #ff9800;
+}
+.tag-square.\33 rd {
+  background-color: #8a5310;
 }
 
 #previewContent img,
@@ -105,7 +108,7 @@
 
 .carousel-item img,
 .carousel-item video {
-  max-width: 50%;
+  max-width: 80%;
   max-height: 300px;
   display: block;
   margin: 0 auto; /* centers content */
