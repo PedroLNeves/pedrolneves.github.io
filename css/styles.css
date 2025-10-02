@@ -11246,6 +11246,14 @@ html {
   font-size: 2rem;
 }
 
+.portfolio-item img {
+  width: 600px; /* or fixed width if you want */
+  height: 350px; /* pick a height that feels right in the grid */
+  object-fit: cover; /* crops instead of squishing */
+  object-position: center; /* keeps center in view */
+  border-radius: 8px; /* optional, just for style */
+}
+
 .portfolio-modal .btn-close {
   color: #fff;
   font-size: 2rem;

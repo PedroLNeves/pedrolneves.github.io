@@ -22,6 +22,9 @@
 .tag-square.jam {
   background-color: #ff9800;
 }
+.tag-square.webgl {
+  background-color: #9300b5;
+}
 
 #previewContent img,
 #previewContent video {

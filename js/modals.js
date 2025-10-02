@@ -87,7 +87,7 @@ function generatePortfolioModals() {
       item.mainMedia.type === "image"
         ? `<img id="main-${item.id}" src="${item.mainMedia.src}" 
                         class="img-fluid mb-3" alt="${item.title}">`
-        : `<video id="main-${item.id}" class="img-fluid mb-3" controls>
+        : `<video id="main-${item.id}" class="img-fluid mb-3" autoplay muted playsinline loop controls>
                      <source src="${item.mainMedia.src}" type="video/mp4">
                    </video>`;
 
