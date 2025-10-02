@@ -103,60 +103,70 @@ function generatePortfolioModals() {
       .join("");
 
     const modalHTML = `
-    <div class="portfolio-modal modal fade" id="${item.id}" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-xl">
-        <div class="modal-content">
-          <div class="modal-header border-0">
-            <button class="btn-close" type="button" data-bs-dismiss="modal"></button>
-          </div>
-          <div class="modal-body text-center pb-5">
-            <div class="container">
-              <div class="row justify-content-center">
-                <div class="col-lg-8">
-                  <h2 class="portfolio-modal-title text-secondary text-uppercase mb-3">${item.title}</h2>
-                  <div class="divider-custom"><div class="divider-custom-line"></div></div>
+<div class="portfolio-modal modal fade" id="${item.id}" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <button class="btn-close" type="button" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body text-center pb-5">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-8">
+              <h2 class="portfolio-modal-title text-secondary text-uppercase mb-3">${item.title}</h2>
+              <div class="divider-custom"><div class="divider-custom-line"></div></div>
 
-                  ${mainMediaHTML}
+              ${mainMediaHTML}
 
-                  <div id="thumbCarousel-${item.id}" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-indicators">
-                      ${indicatorsHTML}
-                    </div>
-
-                    <div class="carousel-inner row row-cols-3 g-2">
-                      ${thumbnailsHTML}
-                    </div>
-
-                    <button class="carousel-control-prev" type="button" 
-                            data-bs-target="#thumbCarousel-${item.id}" data-bs-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" 
-                            data-bs-target="#thumbCarousel-${item.id}" data-bs-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Next</span>
-                    </button>
-                  </div>
-
-                  <p class="mt-3 mb-4">${item.description}</p>
-          <div class="text-center">
-            <button
-              type="button"
-              class="btn btn-outline-light btn-lg mt-2 d-block mx-auto mb-0"
-              style="width: 150px; height: 75%px; display: flex; align-items: center; justify-content: center"
-              data-bs-dismiss="modal"
-            >
-              <i class="fas fa-xmark me-2"></i> Close
-            </button>
-          </div>
+              <div id="thumbCarousel-${item.id}" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                  ${indicatorsHTML}
                 </div>
+
+                <div class="carousel-inner row row-cols-3 g-2">
+                  ${thumbnailsHTML}
+                </div>
+
+                <button class="carousel-control-prev" type="button" 
+                        data-bs-target="#thumbCarousel-${item.id}" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" 
+                        data-bs-target="#thumbCarousel-${item.id}" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+
+              <p class="mt-3 mb-4">${item.description}</p>
+              <div class="text-center d-flex justify-content-center gap-2 mt-5">
+                ${
+                  item.link
+                    ? `
+                  <a href="${item.link}" target="_blank"
+                    class="btn btn-outline-light btn-lg"
+                    style="width: 150px; display: flex; align-items: center; justify-content: center">
+                    <i class="fas fa-play me-2"></i> Play
+                  </a>`
+                    : ""
+                }
+                <button
+                  type="button"
+                  class="btn btn-outline-light btn-lg"
+                  style="width: 150px; display: flex; align-items: center; justify-content: center"
+                  data-bs-dismiss="modal"
+                >
+                  <i class="fas fa-xmark me-2"></i> Close
+                </button>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>`;
+    </div>
+  </div>
+</div>`;
 
     modalContainer.insertAdjacentHTML("beforeend", modalHTML);
 

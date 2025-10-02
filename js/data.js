@@ -28,6 +28,7 @@ const portfolioItems = [
       <p></i>Implemented the pop-up spawning mechanics and visuals.</p>
       <p></i>Polished visuals with <u>particle systems</u> and <u>post-processing</u>.</p>
       <p></i>Created and animated tutorial post-its assets.</p>`,
+    link: "https://trashpandas-studios.itch.io/jailbreaker",
   },
   {
     id: "SweetStakes",
