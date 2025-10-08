@@ -1,34 +1,186 @@
-const highlights = ["SweetStakes", "portfolioModal1", "portfolioModal2"];
-const games = ["Jailbreaker", "portfolioModal3", "portfolioModal4"];
+const highlights = ["SweetStakes", "NightShift", "CrushedDreams"];
+const games = ["UNROOTED", "BREAKER", "Jailbreaker", "WayOut"];
 const other = ["portfolioModal5", "portfolioModal6"];
 
 const portfolioItems = [
   {
-    id: "Jailbreaker",
-    title: "JailBreaker",
-    thumbnail: { type: "image", src: "assets/img/portfolio/Jailbreaker/Thumbnail.png" },
-    mainMedia: { type: "video", src: "assets/img/portfolio/Jailbreaker/Showcase.mp4" },
+    id: "BREAKER",
+    title: ">BR34K3R.exe",
+    thumbnail: { type: "image", src: "assets/img/portfolio/BR34K3R/Thumbnail.png" },
+    mainMedia: { type: "video", src: "assets/img/portfolio/BR34K3R/Showcase.mp4" },
     gallery: [
-      { type: "image", src: "assets/img/portfolio/Jailbreaker/Screenshot_1.png" },
-      { type: "image", src: "assets/img/portfolio/Jailbreaker/Screenshot_2.png" },
+      { type: "image", src: "assets/img/portfolio/BR34K3R/Screenshot_1.png" },
+      { type: "image", src: "assets/img/portfolio/BR34K3R/Screenshot_2.png" },
+      { type: "image", src: "assets/img/portfolio/BR34K3R/Screenshot_3.png" },
+      { type: "image", src: "assets/img/portfolio/BR34K3R/Screenshot_4.png" },
+      { type: "image", src: "assets/img/portfolio/BR34K3R/Screenshot_5.png" },
     ],
-    tags: ["Game", "Unity", "WebGL", "Jam", "48h", "3rd"],
-    shortDescription:
-      "A 2.5D action platformer made in 48 hours for the MAD Game Jam 2024. Players crash the system by exploiting weaknesses while manipulating pop-ups as hazards or platforms.",
+    tags: ["Game", "Processing", "Academic"],
+    shortDescription: `An Arcade Bullet Hell using Facial Recognition and physical Arduino Controller for player controls developed in Processing.`,
     description: `<h3><b><u>CONTEXT</u></b></h3>
-    <p><b>MAD Game Jam 2024 - 48 hours, team of 3</b></p>
-    <p style="margin-top: -1rem;"><i>Themes: Limited Space, Organization, Sex/Drugs/Rock'n'Roll</i></p>
+<p><b>Academic Project, Bachelor in Multimedia, 2024 – Team of 2</b></p>
+<p style="margin-top: -1rem;"><i>Developing an interactive arcade project using Processing and Arduino</i></p>
+
+<h3><b><u>GAME</u></b></h3>
+<p><i>>BR34K3R.exe</i> is a homage to classic arcade bullet hell games, featuring a custom Arduino controller and webcam-based facial recognition to control the character’s movements.</p>
+
+<p>Players use the Arduino controller to switch colors, making them immune to certain projectiles, deploy bombs to clear bullets, and adjust the game’s difficulty with a potentiometer. LEDs on the controller provide real-time feedback on health, bombs, and difficulty level.</p>
+
+<p>The game features a single boss fight with increasingly complex bullet patterns, and the ability to summon three different enemy types, each with unique attack patterns.</p>
+
+  <h3><b><u>CONTRIBUTIONS</u></b></h3>
+    <p><u>Directed</u> the project as team lead and sole developer.</p>
+    <p>Implemented <u>facial recognition</u> using OpenCV.</p>
+    <p>Developed all game <u>mechanics</u> and <u>enemy AI</u>.</p>
+    <p>Coded the boss and mini-enemies using <u>OOP principles</u>.</p>
+    <p>Programmed the <u>in-system leaderboard</u>.</p>
+    <p>Popshed visuals with <u>code-driven animations</u> and <u>effects</u>.</p>
+    <p>Designed, built, and integrated the <u>Arduino controller</u> for gameplay.</p>
+
+    `,
+  },
+  {
+    id: "WayOut",
+    title: "Strayed In Space - A Way Out",
+    thumbnail: { type: "image", src: "assets/img/portfolio/WayOut/Thumbnail.png" },
+    mainMedia: { type: "video", src: "assets/img/portfolio/WayOut/Showcase.mp4" },
+    gallery: [
+      { type: "image", src: "assets/img/portfolio/WayOut/Screenshot_1.png" },
+      { type: "image", src: "assets/img/portfolio/WayOut/Screenshot_2.png" },
+      { type: "image", src: "assets/img/portfolio/WayOut/Screenshot_3.png" },
+      { type: "image", src: "assets/img/portfolio/WayOut/Screenshot_4.png" },
+      { type: "image", src: "assets/img/portfolio/WayOut/Screenshot_5.png" },
+    ],
+    tags: ["Game", "Unity", "VR", "OpenXR", "Academic"],
+    shortDescription: `A VR Escape Room game, prequel of "Strayed In Space", where the player has to find and connect clues to follow the protocol and escape before becoming the rampaging alien's next meal.`,
+    description: `<h3><b><u>CONTEXT</u></b></h3>
+    <p><b>Academic Project, Bachelor in Multimedia, 2023 - Team of 3</b></p>
+    <p style="margin-top: -1rem;"><i>Developing a VR Experience using OpenXR</i></p>
+
     <h3><b><u>GAME</u></b></h3>
-    <p>A 2.5D action platformer where players exploit system weaknesses to crash it. As corruption spreads, pop-ups spawn, crushing the player or serving as improvised platforms.</p>
-      <h3><u><b>CONTRIBUTION</b></u></h3>
-      <p></i><u>Directed</u> the project as team lead.</p>
-      <p></i><u>Modeled</u> and <u>animated</u> the main character.</p>
-      <p></i>Built the <u>core gameplay loop</u> (Pickups, screen shut down, death logic).</p>
-      <p></i>Developed the <u>multi-screen system</u> using cameras and render textures.</p>
-      <p></i>Implemented the pop-up spawning mechanics and visuals.</p>
-      <p></i>Polished visuals with <u>particle systems</u> and <u>post-processing</u>.</p>
-      <p></i>Created and animated tutorial post-its assets.</p>`,
-    link: "https://trashpandas-studios.itch.io/jailbreaker",
+    <p><i>Strayed In Space - A Way Out</i> is a VR Escape Room game developed using OpenXR. This prequel to "Strayed In Space" recontextualizes its lore and characters, giving players a fresh experience while expanding the universe.</p>
+
+    <p>The player is barricaded in a room as the rest of the crew has been slaughtered by a roaming alien. Guided by a cryptic AI voicemail and their own wits, the player finds and decodes scattered clues, interacts with objects, tools, and computers, manages limited leftover energy from batteries, and monitors the alien’s vitals to periodically disable the generator when the alien draws near.</p>
+
+    <p>The game features multiple endings depending on what the player has accomplished before escaping.</p>
+
+    <h3><b><u>CONTRIBUTIONS</u></b></h3>
+    <p><u>Directed</u> the project as team lead and sole Unity developer.</p>
+    <p><u>Designed</u> the <u>mechanics</u>, <u>puzzles</u>, and <u>narrative</u> structure of the experience.</p>
+    <p>Implemented <u>VR mechanics</u> using OpenXR.</p>
+    <p>Built the <u>core gameplay loop</u> and all <u>interactive mechanics</u>.</p>
+    <p>Created diegetic <u>interfaces</u> including keypad, computer monitors, and vitals monitoring.</p>
+    <p>Developed a fully <u>interactive computer system</u> with profiles, passwords, and logs.</p>
+    <p>Generated and edited dialogue for the AI assistant.</p>
+    <p>Designed and implemented immersive <u>sound design</u>.</p>
+    <p>Polished visuals with <u>particle systems</u>, <u>custom shaders</u>, and <u>post-processing</u>.</p>
+    `,
+  },
+  {
+    id: "UNROOTED",
+    title: "UNROOTED",
+    thumbnail: { type: "image", src: "assets/img/portfolio/Unrooted/Thumbnail.png" },
+    mainMedia: { type: "video", src: "assets/img/portfolio/Unrooted/Showcase.mp4" },
+    gallery: [
+      { type: "image", src: "assets/img/portfolio/Unrooted/Screenshot_1.gif" },
+      { type: "image", src: "assets/img/portfolio/Unrooted/Screenshot_2.png" },
+      { type: "image", src: "assets/img/portfolio/Unrooted/Screenshot_3.png" },
+      { type: "image", src: "assets/img/portfolio/Unrooted/Screenshot_4.png" },
+      { type: "image", src: "assets/img/portfolio/Unrooted/Screenshot_5.png" },
+    ],
+    tags: ["Game", "Unity", "Jam", "2nd"],
+    shortDescription: `A PSX Inspired 3D FPS developed entirely in 48 hours for the KendirJam 2024, set in a collapsing world where the player is sent to appease the wrathful forest by shutting down fracking machine.`,
+    description: `<h3><b><u>CONTEXT</u></b></h3>
+    <p><b>KendirJam 2024 - 48 hours, team of 4</b></p>
+    <p style="margin-top: -1rem;"><i>Themes: "Bloody Trees", "Fire" and "Emotions cause damage"</i></p>
+    <p style="margin-top: -1rem;"><i>REFINED POST JAM</i></p>
+
+    <h3><b><u>GAME</u></b></h3>
+    <p><i>UNROOTED</i> is a 3D FPS inspired by PSX-era retro graphics and gameplay, set in a near-future where nature rises against humanity after the planet is harmed (literally bleeding).</p>
+
+    <p>The player is tasked with appeasing nature by shutting down fracking machines, picking up trash, and putting out fires, all while defending against vengeful bleeding trees and minimizing collateral damage.</p>
+
+    <p>At the end of the mission, players receive a score and commentary based on their performance.</p>
+
+    <h3><b><u>CONTRIBUTIONS</u></b></h3>
+    <p><u>Directed</u> the project and art direction as team lead.</p>
+    <p>Implemented the <u>core gameplay loop</u>.</p>
+    <p><u>Rigged</u> and <u>animated</u> enemies and machines.</p>
+    <p>Built and textured the <u>terrain</u>.</p>
+    <p>Developed the <u>player controls</u> and interactive tools.</p>
+    <p>Implemented the <u>mini-map</u> displaying objectives and enemies.</p>
+    <p>Worked extensively with the <u>Rendering Pipeline</u> to resolve layering and depth issues with post-processing effects, 3D interfaces, particle effects, and tool clipping.</p>
+    <p>Polished visuals with <u>particle systems</u>, <u>custom shaders</u>, and <u>post-processing</u>.</p>
+    `,
+    link: "https://trashpandas-studios.itch.io/unrooted",
+  },
+  {
+    id: "NightShift",
+    title: "The Night Shift",
+    thumbnail: { type: "image", src: "assets/img/portfolio/NightShift/Thumbnail.png" },
+    mainMedia: { type: "video", src: "assets/img/portfolio/NightShift/Showcase.mp4" },
+    gallery: [
+      { type: "image", src: "assets/img/portfolio/NightShift/Screenshot_1.png" },
+      { type: "image", src: "assets/img/portfolio/NightShift/Screenshot_2.png" },
+      { type: "image", src: "assets/img/portfolio/NightShift/Screenshot_3.png" },
+      { type: "image", src: "assets/img/portfolio/NightShift/Screenshot_4.png" },
+      { type: "image", src: "assets/img/portfolio/NightShift/Screenshot_5.png" },
+    ],
+    tags: ["Game", "Unity", "Jam", "WebGL", "48h", "1st"],
+    shortDescription: `A 3D local Co-Op survival horror game, developed entirely in 48 hours for the MAD Game Jam 2025. Players must coordinate to complete their tasks and face different foes until the end of their shift.`,
+    description: `<h3><b><u>CONTEXT</u></b></h3>
+    <p><b>MAD Game Jam 2025 - 48 hours, team of 5</b></p>
+    <p style="margin-top: -1rem;"><i>Themes: "Marvelous Grotesque", "Elevator" and "Flash"</i></p>
+    <p style="margin-top: -1rem;"><i>REFINED POST JAM</i></p>
+
+    <h3><b><u>GAME</u></b></h3>
+    <p><i>The Night Shift</i> is a 3D local Co-Op survival horror game located in a bizarre museum. The Janitor and Security must survive their shift, completing tasks with their abilities. The Janitor tidies expositions and cleans floors and toilets, while the Security Guard monitors, answers check-up calls, fixes cameras, and uses a flashlight and flashbang to survive the dark corridors.</p>
+
+    <p>The players face 3 distinct enemies: one moves only when unseen, one latches onto players who stare too long, and one is guided solely by sound. When caught, the player is turned into a statue and can be rescued by their colleague.</p>
+
+    <p>At the end of the shift, score/pay is deducted for each missed task.</p>
+
+    <h3><b><u>CONTRIBUTIONS</u></b></h3>
+    <p><u>Directed</u> the project and art direction as team lead.</p>
+    <p>Implemented the <u>core gameplay loop</u>.</p>
+    <p>Contributed to the implementation of the <u>local Co-Op mechanics</u>.</p>
+    <p>Solved Co-Op related challenges with <u>creative solutions</u> (spatial sound and 3D sprite rendering).</p>
+    <p>Developed the AI for the different enemies.</p>
+    <p>Polished visuals with <u>particle systems</u>, <u>lighting setup</u>, <u>custom shaders</u>, and <u>post-processing</u>.</p>
+    `,
+    link: "https://trashpandas-studios.itch.io",
+  },
+  {
+    id: "CrushedDreams",
+    title: "Crushed Dreams",
+    thumbnail: { type: "image", src: "assets/img/portfolio/CrushedDreams/Thumbnail.jpg" },
+    mainMedia: { type: "video", src: "assets/img/portfolio/CrushedDreams/Showcase.mp4" },
+    gallery: [
+      { type: "image", src: "assets/img/portfolio/CrushedDreams/Screenshot_1.png" },
+      { type: "image", src: "assets/img/portfolio/CrushedDreams/Screenshot_2.png" },
+      { type: "image", src: "assets/img/portfolio/CrushedDreams/Screenshot_3.png" },
+      { type: "image", src: "assets/img/portfolio/CrushedDreams/Screenshot_4.png" },
+      { type: "image", src: "assets/img/portfolio/CrushedDreams/Screenshot_5.png" },
+    ],
+    tags: ["Game", "Unity", "VR", "OpenXR", "Academic"],
+    shortDescription: `An experimental VR experience with real-time painting and grading systems, testing the player's painting skills against an unforgiving AI overlord.`,
+    description: `<h3><b><u>CONTEXT</u></b></h3>
+    <p><b>Academic Project, Bachelor in Multimedia, 2024 - Team of 2</b></p>
+    <p style="margin-top: -1rem;"><i>Exploring the artist's future in the age of Artificial Intelligence</i></p>
+
+    <h3><b><u>GAME</u></b></h3>
+    <p><i>Crushed Dreams</i> is an experimental VR experience that places the player in a factory where they must paint increasingly complex images under strict time constraints. Failure to meet the impossible standards results in the player being replaced by a cold machine.</p>
+    <p>The project features <u>real-time painting mechanics</u> on a canvas with multiple tools, and a <u>rating system</u> that compares the player's submission to a reference, providing witty AI commentary.</p>
+
+    <h3><b><u>CONTRIBUTIONS</u></b></h3>
+    <p><u>Directed</u> the project as team lead.</p>
+    <p><u>Designed</u> core <u>mechanics</u> and <u>narrative</u> structure of the experience.</p>
+    <p>Implemented <u>VR mechanics and interfaces</u> using OpenXR.</p>
+    <p>Developed the <u>real-time painting system</u> entirely from scratch.</p>
+    <p>Programmed the <u>painting rating algorithm</u> for performance evaluation against references.</p>
+    <p>Generated AI-driven voiced narration, later refined in <u>Reaper</u>.</p>
+    <p>Polished visuals with <u>particle systems</u>, <u>lighting setup</u>, <u>custom shaders</u>, and <u>post-processing</u>.</p>
+    `,
   },
   {
     id: "SweetStakes",
@@ -45,93 +197,53 @@ const portfolioItems = [
     ],
     tags: ["Game", "Unity", "WebGL", "Jam"],
     shortDescription:
-      "Sweet Stakes is a 3D Bullet Heaven with roguelite elements developed entirely in 1 week for the Brackeys Game Jam 2025",
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit...",
+      "A 3D Bullet Heaven with roguelite elements developed entirely in 1 week for the Brackeys Game Jam 2025. The player defeats enemies and tests their own greed to leave the game-show with the biggest cookie.",
+    description: `<h3><b><u>CONTEXT</u></b></h3>
+    <p><b>Brackeys Game Jam 2025 - 1 week, team of 4</b></p>
+    <p style="margin-top: -1rem;"><i>Theme: Risk it for the Biscuit</i></p>
+
+    <h3><b><u>GAME</u></b></h3>
+    <p><i>Sweet Stakes</i> is a 3D bullet-heaven roguelite set in a deadly game show where contestants battle waves of enemies and collect sugar to upgrade their arsenal and bake the ultimate cookie. 
+    Each run features a new contestant and randomized events that tempt the player’s greed.</p>
+
+    <h3><b><u>CONTRIBUTIONS</u></b></h3>
+    <p><u>Directed</u> the project as team lead.</p>
+    <p>Implemented the <u>UI</u> and UX flow.</p>
+    <p>Designed and coded the <u>weapon system</u> (abilities, upgrading, equipping, etc.).</p>
+    <p>Built the <u>stat upgrade</u> framework.</p>
+    <p>Created the <u>random event</u> systems (stat cards and roulette mechanics).</p>
+    <p>Implemented <u>random character generation</u>.</p>
+    <p>Polished visuals using <u>particle systems</u> and <u>custom shaders</u>.</p>
+    `,
+    link: "https://trashpandas-studios.itch.io/sweet-stakes",
   },
   {
-    id: "portfolioModal1",
-    title: "Log Cabin",
-    thumbnail: { type: "image", src: "assets/img/portfolio/cabin.png" },
-    mainMedia: { type: "image", src: "assets/img/portfolio/cabin.png" },
+    id: "Jailbreaker",
+    title: "JailBreaker",
+    thumbnail: { type: "image", src: "assets/img/portfolio/Jailbreaker/Thumbnail.png" },
+    mainMedia: { type: "video", src: "assets/img/portfolio/Jailbreaker/Showcase.mp4" },
     gallery: [
-      { type: "image", src: "assets/img/portfolio/cabin.png" },
-      { type: "image", src: "assets/img/portfolio/cake.png" },
-      { type: "image", src: "assets/img/portfolio/submarine.png" },
+      { type: "image", src: "assets/img/portfolio/Jailbreaker/Screenshot_1.png" },
+      { type: "image", src: "assets/img/portfolio/Jailbreaker/Screenshot_2.png" },
     ],
+    tags: ["Game", "Unity", "WebGL", "Jam", "48h", "3rd"],
     shortDescription:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent egestas enim a dui pulvinar egestas. Pellentesque accumsan consequat odio, vitae eleifend sapien tempor vel. Curabitur varius sapien quis elementum sollicitudin.",
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit...",
-  },
-  {
-    id: "portfolioModal2",
-    title: "Tasty Cake",
-    thumbnail: { type: "image", src: "assets/img/portfolio/cake.png" },
-    mainMedia: {
-      type: "video",
-      src: "assets/img/portfolio/video_placeholder.mp4",
-    },
-    gallery: [
-      { type: "image", src: "assets/img/portfolio/cake.png" },
-      { type: "image", src: "assets/img/portfolio/circus.png" },
-    ],
-    shortDescription: "Lorem Ipsum",
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit...",
-  },
-  {
-    id: "portfolioModal3",
-    title: "Circus Tent",
-    thumbnail: { type: "image", src: "assets/img/portfolio/circus.png" },
-    mainMedia: { type: "image", src: "assets/img/portfolio/circus.png" },
-    gallery: [
-      { type: "image", src: "assets/img/portfolio/circus.png" },
-      { type: "image", src: "assets/img/portfolio/game.png" },
-      { type: "image", src: "assets/img/portfolio/safe.png" },
-      { type: "image", src: "assets/img/portfolio/submarine.png" },
-    ],
-    shortDescription: "Lorem Ipsum",
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit...",
-  },
-  {
-    id: "portfolioModal4",
-    title: "Controller",
-    thumbnail: { type: "image", src: "assets/img/portfolio/game.png" },
-    mainMedia: { type: "image", src: "assets/img/portfolio/game.png" },
-    gallery: [
-      { type: "image", src: "assets/img/portfolio/game.png" },
-      { type: "image", src: "assets/img/portfolio/cake.png" },
-    ],
-    shortDescription: "Lorem Ipsum",
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit...",
-  },
-  {
-    id: "portfolioModal5",
-    title: "Locked Safe",
-    thumbnail: { type: "image", src: "assets/img/portfolio/safe.png" },
-    mainMedia: {
-      type: "video",
-      src: "assets/img/portfolio/video_placeholder.mp4",
-    },
-    gallery: [
-      { type: "image", src: "assets/img/portfolio/safe.png" },
-      { type: "image", src: "assets/img/portfolio/cabin.png" },
-      { type: "image", src: "assets/img/portfolio/game.png" },
-    ],
-    shortDescription: "Lorem Ipsum",
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit...",
-  },
-  {
-    id: "portfolioModal6",
-    title: "Submarine",
-    thumbnail: { type: "image", src: "assets/img/portfolio/submarine.png" },
-    mainMedia: { type: "image", src: "assets/img/portfolio/submarine.png" },
-    gallery: [
-      { type: "video", src: "assets/img/portfolio/video_placeholder.mp4" },
-      { type: "image", src: "assets/img/portfolio/submarine.png" },
-      { type: "image", src: "assets/img/portfolio/circus.png" },
-      { type: "image", src: "assets/img/portfolio/cake.png" },
-      { type: "image", src: "assets/img/portfolio/safe.png" },
-    ],
-    shortDescription: "Lorem Ipsum",
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit...",
+      "A 2.5D action platformer made in 48 hours for the MAD Game Jam 2024. Players crash the system by exploiting weaknesses while manipulating pop-ups as hazards or platforms.",
+    description: `<h3><b><u>CONTEXT</u></b></h3>
+    <p><b>MAD Game Jam 2024 - 48 hours, team of 3</b></p>
+    <p style="margin-top: -1rem;"><i>Themes: Limited Space, Organization, Sex/Drugs/Rock'n'Roll</i></p>
+
+    <h3><b><u>GAME</u></b></h3>
+    <p>A 2.5D action platformer where players exploit system weaknesses to crash it. As corruption spreads, pop-ups spawn, crushing the player or serving as improvised platforms.</p>
+     
+    <h3><u><b>CONTRIBUTION</b></u></h3>
+    <p></i><u>Directed</u> the project as team lead.</p>
+    <p></i><u>Modeled</u> and <u>animated</u> the main character.</p>
+    <p></i>Built the <u>core gameplay loop</u> (Pickups, screen shut down, death logic).</p>
+    <p></i>Developed the <u>multi-screen system</u> using cameras and render textures.</p>
+    <p></i>Implemented the pop-up spawning mechanics and visuals.</p>
+    <p></i>Polished visuals with <u>particle systems</u> and <u>post-processing</u>.</p>
+    <p></i>Created and animated tutorial post-its assets.</p>`,
+    link: "https://trashpandas-studios.itch.io/jailbreaker",
   },
 ];

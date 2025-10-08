@@ -87,7 +87,7 @@ function generatePortfolioModals() {
       item.mainMedia.type === "image"
         ? `<img id="main-${item.id}" src="${item.mainMedia.src}" 
                         class="img-fluid mb-3" alt="${item.title}">`
-        : `<video id="main-${item.id}" class="img-fluid mb-3" autoplay muted playsinline loop controls>
+        : `<video id="main-${item.id}" class="img-fluid mb-3" muted playsinline loop controls>
                      <source src="${item.mainMedia.src}" type="video/mp4">
                    </video>`;
 
@@ -212,7 +212,14 @@ function generatePortfolioModals() {
           if (backdrop) backdrop.remove();
         }
 
-        previewModalEl.addEventListener("hidden.bs.modal", removePreviewBackdrop);
+        previewModalEl.addEventListener("hidden.bs.modal", () => {
+          const media = previewContent.querySelector("video");
+          if (media) {
+            media.pause();
+            media.currentTime = 0;
+          }
+          removePreviewBackdrop();
+        });
 
         const closeBtn = previewModalEl.querySelector(".btn[data-bs-dismiss='modal']");
         if (closeBtn) closeBtn.addEventListener("click", removePreviewBackdrop);

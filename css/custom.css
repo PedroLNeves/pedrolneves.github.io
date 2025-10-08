@@ -1,15 +1,17 @@
 .tag-square {
   display: inline-block;
-  padding: 0 6px; /* horizontal padding */
-  height: 24px; /* square-ish height */
-  line-height: 24px; /* vertical centering */
+  min-width: 40px; /* ensures even short tags have decent width */
+  padding: 0 6px;
+  height: 24px;
+  line-height: 24px;
   font-size: 18px;
   color: #111;
   font-weight: bold;
-  border-radius: 4px; /* slightly rounded corners */
+  border-radius: 4px;
   margin: 2px;
   text-align: center;
-  background-color: gray; /* default color */
+  background-color: gray;
+  opacity: 1;
 }
 
 /* specific tag colors */
@@ -17,16 +19,34 @@
   background-color: #dc3a27;
 }
 .tag-square.unity {
-  background-color: #f7df1e;
+  background-color: #bcc3c6;
 } /* for C# */
 .tag-square.jam {
-  background-color: #9300b5;
+  background-color: #ffc404;
 }
 .tag-square.webgl {
-  background-color: #ff9800;
+  background-color: #9c0808;
+}
+.tag-square.vr {
+  background-color: #0886fb;
+}
+.tag-square.openxr {
+  background-color: #723b8f;
+}
+.tag-square.academic {
+  background-color: #cb532b;
+}
+.tag-square.processing {
+  background-color: #6c9fca;
 }
 .tag-square.\33 rd {
   background-color: #8a5310;
+}
+.tag-square.\22 nd {
+  background-color: #bcc3c6;
+}
+.tag-square.\11 st {
+  background-color: #ffc404;
 }
 
 #previewContent img,
@@ -110,8 +130,11 @@
 .carousel-item video {
   max-width: 80%;
   max-height: 300px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
   display: block;
-  margin: 0 auto; /* centers content */
+  margin: 0 auto;
 }
 
 @keyframes spin {
