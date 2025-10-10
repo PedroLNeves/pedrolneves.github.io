@@ -25,7 +25,7 @@ function populateSection(containerSelector, itemIds) {
               ${item.title}
             </div>
           </div>
-          <img class="img-fluid mb-2" src="${item.thumbnail?.src}" alt="${item.title}" />
+          <img class="img-fluid mb-2" src="${item.thumbnail?.src}" alt="${item.title}" loading="lazy" />
         </div>
         <div class="d-flex flex-wrap justify-content-center gap-1 mb-2">
           ${tagsHTML}
@@ -85,58 +85,66 @@ function generatePortfolioGrid() {
   });
 }
 
+// Generate all modals for portfolio items
 function generatePortfolioModals() {
   const modalContainer = document.body;
 
   portfolioItems.forEach((item) => {
-    // build carousel
     const thumbnailsHTML = item.gallery
       .map((media, index) => {
         if (media.type === "image") {
-          return `
-          <div class="carousel-item ${index === 0 ? "active" : ""}">
-            <div class="carousel-content">
-              <img src="${media.src}" class="d-block w-100 thumb-img"
-                   data-type="image" data-src="${media.src}" alt="">
-            </div>
-          </div>`;
+          return `<div class="carousel-item ${index === 0 ? "active" : ""}">
+                      <div class="carousel-content">
+                        <img src="${media.src}" class="d-block w-100 thumb-img" 
+                             data-type="image" data-src="${media.src}" alt="">
+                      </div>
+                    </div>`;
         } else {
-          return `
-          <div class="carousel-item ${index === 0 ? "active" : ""}">
-            <div class="carousel-content">
-              <div class="video-wrapper">
-                <video class="d-block w-100 thumb-img"
-                       data-type="video" data-src="${media.src}"
-                       muted preload="none"></video>
-                <span class="play-overlay" aria-hidden="true"></span>
-              </div>
-            </div>
-          </div>`;
+          return `<div class="carousel-item ${index === 0 ? "active" : ""}">
+                    <div class="carousel-content">
+                      <div class="video-wrapper">
+                        <video class="d-block w-100 thumb-img" data-type="video" data-src="${
+                          media.src
+                        }" muted preload="metadata">
+                          <source src="${media.src}" type="video/mp4">
+                        </video>
+
+                        <!-- actual overlay element (visual only) -->
+                        <span class="play-overlay" aria-hidden="true"></span>
+                      </div>
+                    </div>
+                  </div>`;
         }
       })
       .join("");
 
-    // main media (lazy video)
+    const thumbVideos = modalContainer.querySelectorAll(`#${item.id} video.thumb-img`);
+    thumbVideos.forEach((video) => {
+      video.addEventListener("loadedmetadata", () => {
+        video.currentTime = video.duration * 0.5;
+        video.pause();
+      });
+    });
+
     const mainMediaHTML =
       item.mainMedia.type === "image"
         ? `<img id="main-${item.id}" src="${item.mainMedia.src}" 
-                 class="img-fluid mb-3" alt="${item.title}">`
-        : `<video id="main-${item.id}" class="img-fluid mb-3"
-                  data-src="${item.mainMedia.src}" muted playsinline loop controls preload="none"></video>`;
+      class="img-fluid mb-3" alt="${item.title}" loading="lazy">`
+        : `<video id="main-${item.id}" class="img-fluid mb-3" muted playsinline loop controls preload="none"
+            data-src="${item.mainMedia.src}">
+           </video>`;
 
-    // carousel indicators
     const indicatorsHTML = item.gallery
       .map(
         (_, index) => `
-      <button type="button" data-bs-target="#thumbCarousel-${item.id}"
-          data-bs-slide-to="${index}" 
-          class="${index === 0 ? "active" : ""}" 
-          aria-current="${index === 0 ? "true" : "false"}" 
-          aria-label="Slide ${index + 1}"></button>`
+                <button type="button" data-bs-target="#thumbCarousel-${item.id}"
+                    data-bs-slide-to="${index}" 
+                    class="${index === 0 ? "active" : ""}" 
+                    aria-current="${index === 0 ? "true" : "false"}" 
+                    aria-label="Slide ${index + 1}"></button>`
       )
       .join("");
 
-    // modal markup
     const modalHTML = `
 <div class="portfolio-modal modal fade" id="${item.id}" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog modal-xl">
@@ -154,8 +162,14 @@ function generatePortfolioModals() {
               ${mainMediaHTML}
 
               <div id="thumbCarousel-${item.id}" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-indicators">${indicatorsHTML}</div>
-                <div class="carousel-inner row row-cols-3 g-2">${thumbnailsHTML}</div>
+                <div class="carousel-indicators">
+                  ${indicatorsHTML}
+                </div>
+
+                <div class="carousel-inner row row-cols-3 g-2">
+                  ${thumbnailsHTML}
+                </div>
+
                 <button class="carousel-control-prev" type="button" 
                         data-bs-target="#thumbCarousel-${item.id}" data-bs-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -172,17 +186,20 @@ function generatePortfolioModals() {
               <div class="text-center d-flex justify-content-center gap-2 mt-5">
                 ${
                   item.link
-                    ? `<a href="${item.link}" target="_blank"
-                         class="btn btn-outline-light btn-lg"
-                         style="width: 150px; display: flex; align-items: center; justify-content: center">
-                         <i class="fas fa-play me-2"></i> Play
-                       </a>`
+                    ? `
+                  <a href="${item.link}" target="_blank"
+                    class="btn btn-outline-light btn-lg"
+                    style="width: 150px; display: flex; align-items: center; justify-content: center">
+                    <i class="fas fa-play me-2"></i> Play
+                  </a>`
                     : ""
                 }
-                <button type="button"
-                        class="btn btn-outline-light btn-lg"
-                        style="width: 150px; display: flex; align-items: center; justify-content: center"
-                        data-bs-dismiss="modal">
+                <button
+                  type="button"
+                  class="btn btn-outline-light btn-lg"
+                  style="width: 150px; display: flex; align-items: center; justify-content: center"
+                  data-bs-dismiss="modal"
+                >
                   <i class="fas fa-xmark me-2"></i> Close
                 </button>
               </div>
@@ -196,35 +213,30 @@ function generatePortfolioModals() {
 
     modalContainer.insertAdjacentHTML("beforeend", modalHTML);
 
-    // Lazy-load video sources when modal opens
     const modalEl = document.getElementById(item.id);
-
     modalEl.addEventListener("show.bs.modal", () => {
-      // Lazy-load gallery videos
-      const videos = modalEl.querySelectorAll("video[data-src]");
-      videos.forEach((v) => {
-        if (!v.querySelector("source")) {
-          const src = v.dataset.src;
-          const source = document.createElement("source");
-          source.src = src;
-          source.type = "video/mp4";
-          v.appendChild(source);
-          v.load();
-        }
-      });
+      const mainVideo = modalEl.querySelector(`#main-${item.id}`);
+      if (mainVideo && !mainVideo.querySelector("source")) {
+        const src = mainVideo.dataset.src;
+        const source = document.createElement("source");
+        source.src = src;
+        source.type = "video/mp4";
+        mainVideo.appendChild(source);
+        mainVideo.load();
+      }
     });
 
-    // Clean up when modal closes
     modalEl.addEventListener("hidden.bs.modal", () => {
-      const videos = modalEl.querySelectorAll("video");
-      videos.forEach((v) => {
-        v.pause();
-        while (v.firstChild) v.removeChild(v.firstChild);
-      });
+      const mainVideo = modalEl.querySelector(`#main-${item.id}`);
+      if (mainVideo) {
+        mainVideo.pause();
+        mainVideo.removeAttribute("src");
+        mainVideo.innerHTML = ""; // removes <source>
+      }
     });
 
-    // Attach thumbnail click handlers *after* modal is inserted
-    const thumbEls = modalEl.querySelectorAll(".thumb-img");
+    // Thumbnail click handlers
+    const thumbEls = document.querySelectorAll(`#${item.id} .thumb-img`);
     thumbEls.forEach((thumb) => {
       thumb.addEventListener("click", () => {
         const type = thumb.dataset.type;
@@ -233,39 +245,50 @@ function generatePortfolioModals() {
         if (!previewContent) return;
 
         previewContent.innerHTML = "";
-        const previewModalEl = document.getElementById("previewModal");
-        const previewModal = new bootstrap.Modal(previewModalEl);
+        let newMedia;
 
         if (type === "image") {
-          const img = document.createElement("img");
-          img.src = src;
-          img.className = "img-fluid";
-          previewContent.appendChild(img);
+          newMedia = document.createElement("img");
+          newMedia.src = src;
+          newMedia.className = "img-fluid";
         } else {
-          const vid = document.createElement("video");
-          vid.className = "img-fluid";
-          vid.controls = true;
+          newMedia = document.createElement("video");
+          newMedia.className = "img-fluid";
+          newMedia.controls = true;
           const source = document.createElement("source");
           source.src = src;
           source.type = "video/mp4";
-          vid.appendChild(source);
-          previewContent.appendChild(vid);
-          vid.muted = true;
-          vid.playsInline = true;
-          vid.autoplay = true;
-          vid.play().catch(() => {});
+          newMedia.appendChild(source);
         }
 
+        if (type === "video") {
+          previewContent.appendChild(newMedia);
+
+          // Start playing the video
+          newMedia.muted = true; // optional: ensures autoplay works in most browsers
+          newMedia.playsInline = true; // for iOS
+          newMedia.autoplay = true;
+          newMedia.play().catch((err) => {
+            console.log("Autoplay failed:", err);
+          });
+        } else {
+          previewContent.appendChild(newMedia);
+        }
+
+        const previewModalEl = document.getElementById("previewModal");
+        if (!previewModalEl) return;
+
+        const previewModal = new bootstrap.Modal(previewModalEl);
         previewModal.show();
 
         const backdrop = document.createElement("div");
         backdrop.className = "modal-backdrop preview-modal-backdrop fade show";
         document.body.appendChild(backdrop);
 
-        const removePreviewBackdrop = () => {
+        function removePreviewBackdrop() {
           const backdrop = document.querySelector(".preview-modal-backdrop");
           if (backdrop) backdrop.remove();
-        };
+        }
 
         previewModalEl.addEventListener("hidden.bs.modal", () => {
           const media = previewContent.querySelector("video");
