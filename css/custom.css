@@ -178,17 +178,6 @@
   place-items: center;
 }
 
-/* dark semi-transparent circle */
-.play-overlay::before {
-  content: "";
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: rgba(0, 0, 0, 0.4);
-  transition: background 0.18s, transform 0.18s;
-  display: block;
-}
-
 /* white triangle */
 .play-overlay::after {
   content: "";
