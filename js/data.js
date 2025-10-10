@@ -332,7 +332,7 @@ const portfolioItems = [
       { type: "image", src: "assets/img/portfolio/SweetStakes/Screenshot_5.png" },
       { type: "image", src: "assets/img/portfolio/SweetStakes/Screenshot_6.png" },
     ],
-    tags: ["Game", "Unity", "WebGL", "Jam"],
+    tags: ["Game", "Unity", "Jam", "WebGL"],
     shortDescription:
       "A 3D Bullet Heaven with roguelite elements developed entirely in 1 week for the Brackeys Game Jam 2025. The player defeats enemies and tests their own greed to leave the game-show with the biggest cookie.",
     description: `<h3><b><u>CONTEXT</u></b></h3>
@@ -363,7 +363,7 @@ const portfolioItems = [
       { type: "image", src: "assets/img/portfolio/Jailbreaker/Screenshot_1.png" },
       { type: "image", src: "assets/img/portfolio/Jailbreaker/Screenshot_2.png" },
     ],
-    tags: ["Game", "Unity", "WebGL", "Jam", "48h", "3rd"],
+    tags: ["Game", "Unity", "Jam", "WebGL", "48h", "3rd"],
     shortDescription:
       "A 2.5D action platformer made in 48 hours for the MAD Game Jam 2024. Players crash the system by exploiting weaknesses while manipulating pop-ups as hazards or platforms.",
     description: `<h3><b><u>CONTEXT</u></b></h3>
