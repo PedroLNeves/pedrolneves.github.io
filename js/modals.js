@@ -4,20 +4,21 @@ function populateSection(containerSelector, itemIds) {
   if (!sectionGrid) return;
   sectionGrid.innerHTML = ""; // Clear first
 
-  itemIds.forEach((id) => {
+  itemIds.forEach((id, idx) => {
     const item = portfolioItems.find((p) => p.id === id);
     if (!item) return; // skip if not found
 
     const tagsHTML = item.tags
       ?.map((tag) => {
-        // sanitize class names for CSS
         const safeClass = tag.toLowerCase().replace(/[^a-z0-9]/g, "-");
         return `<span class="tag-square ${safeClass}">${tag}</span>`;
       })
       .join("");
 
+    const hiddenClass = idx >= 3 ? " extra-item" : "";
+
     const gridItem = `
-      <div class="col-md-6 col-lg-4 mb-1">
+      <div class="col-md-6 col-lg-4 mb-1${hiddenClass}">
         <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#${item.id}">
           <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
             <div class="portfolio-item-caption-content text-center text-white">
@@ -26,7 +27,7 @@ function populateSection(containerSelector, itemIds) {
           </div>
           <img class="img-fluid mb-2" src="${item.thumbnail?.src}" alt="${item.title}" />
         </div>
-                <div class="d-flex flex-wrap justify-content-center gap-1 mb-2">
+        <div class="d-flex flex-wrap justify-content-center gap-1 mb-2">
           ${tagsHTML}
         </div>
         <p class="text-center mt-2">${item.shortDescription}</p>
@@ -34,6 +35,30 @@ function populateSection(containerSelector, itemIds) {
     `;
     sectionGrid.insertAdjacentHTML("beforeend", gridItem);
   });
+
+  // Only add the "See more" button if there are more than 3 items
+  if (itemIds.length > 3) {
+    const seeMoreBtn = document.createElement("button");
+    seeMoreBtn.className = "btn btn-outline-light btn-lg";
+    seeMoreBtn.textContent = "See more";
+    sectionGrid.parentElement.appendChild(seeMoreBtn);
+
+    seeMoreBtn.addEventListener("click", () => {
+      const hiddenItems = sectionGrid.querySelectorAll(".extra-item");
+      const isHidden = !hiddenItems[0].classList.contains("show");
+
+      hiddenItems.forEach((el) => {
+        el.classList.toggle("show", isHidden);
+      });
+
+      seeMoreBtn.textContent = isHidden ? "See less" : "See more";
+    });
+
+    const wrapper = document.createElement("div");
+    wrapper.className = "d-flex justify-content-center mt-1.5";
+    wrapper.appendChild(seeMoreBtn);
+    sectionGrid.insertAdjacentElement("afterend", wrapper);
+  }
 }
 
 // Generate the portfolio grid with short descriptions
@@ -69,19 +94,37 @@ function generatePortfolioModals() {
       .map((media, index) => {
         if (media.type === "image") {
           return `<div class="carousel-item ${index === 0 ? "active" : ""}">
+                      <div class="carousel-content">
                         <img src="${media.src}" class="d-block w-100 thumb-img" 
                              data-type="image" data-src="${media.src}" alt="">
+                      </div>
                     </div>`;
         } else {
           return `<div class="carousel-item ${index === 0 ? "active" : ""}">
-                        <video class="d-block w-100 thumb-img" data-type="video" 
-                               data-src="${media.src}" muted>
+                    <div class="carousel-content">
+                      <div class="video-wrapper">
+                        <video class="d-block w-100 thumb-img" data-type="video" data-src="${
+                          media.src
+                        }" muted preload="metadata">
                           <source src="${media.src}" type="video/mp4">
                         </video>
-                    </div>`;
+
+                        <!-- actual overlay element (visual only) -->
+                        <span class="play-overlay" aria-hidden="true"></span>
+                      </div>
+                    </div>
+                  </div>`;
         }
       })
       .join("");
+
+    document.querySelectorAll(".thumb-img").forEach((video) => {
+      video.addEventListener("loadedmetadata", () => {
+        // Jump to 50% of video duration
+        video.currentTime = video.duration * 0.5;
+        video.pause(); // keep paused until user clicks play
+      });
+    });
 
     const mainMediaHTML =
       item.mainMedia.type === "image"
@@ -195,7 +238,20 @@ function generatePortfolioModals() {
           source.type = "video/mp4";
           newMedia.appendChild(source);
         }
-        previewContent.appendChild(newMedia);
+
+        if (type === "video") {
+          previewContent.appendChild(newMedia);
+
+          // Start playing the video
+          newMedia.muted = true; // optional: ensures autoplay works in most browsers
+          newMedia.playsInline = true; // for iOS
+          newMedia.autoplay = true;
+          newMedia.play().catch((err) => {
+            console.log("Autoplay failed:", err);
+          });
+        } else {
+          previewContent.appendChild(newMedia);
+        }
 
         const previewModalEl = document.getElementById("previewModal");
         if (!previewModalEl) return;
