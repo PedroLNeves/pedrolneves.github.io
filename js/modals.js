@@ -198,7 +198,9 @@ function generatePortfolioModals() {
 
     // Lazy-load video sources when modal opens
     const modalEl = document.getElementById(item.id);
+
     modalEl.addEventListener("show.bs.modal", () => {
+      // Lazy-load gallery videos
       const videos = modalEl.querySelectorAll("video[data-src]");
       videos.forEach((v) => {
         if (!v.querySelector("source")) {
