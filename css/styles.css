@@ -5976,6 +5976,13 @@ fieldset:disabled .btn {
   margin: 0 auto;
 }
 
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .carousel {
+    max-height: 30vh; /* smaller height on mobile */
+  }
+}
+
 .carousel.pointer-event {
   touch-action: pan-y;
 }
