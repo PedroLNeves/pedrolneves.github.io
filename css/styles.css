@@ -5971,6 +5971,7 @@ fieldset:disabled .btn {
 
 .carousel {
   position: relative;
+  max-height: 50vh;
   width: 100%;
   margin: 0 auto;
 }

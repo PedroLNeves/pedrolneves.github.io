@@ -1,8 +1,151 @@
 const highlights = ["SweetStakes", "NightShift", "CrushedDreams"];
-const games = ["UNROOTED", "BREAKER", "Jailbreaker", "WayOut", "Dantes", "Strayed"];
-const other = ["Reality", "Biomek"];
+const games = ["UNROOTED", "BREAKER", "Jailbreaker", "Brew", "WayOut", "Dantes", "Strayed", "LightsFall", "Heracles"];
+const other = ["Kirves", "Reality", "Biomek"];
 
 const portfolioItems = [
+  {
+    id: "Brew",
+    title: "Brew The Catch",
+    thumbnail: { type: "image", src: "assets/img/portfolio/Brew/Thumbnail.png" },
+    mainMedia: { type: "video", src: "assets/img/portfolio/Brew/Showcase.mp4" },
+    gallery: [
+      { type: "image", src: "assets/img/portfolio/Brew/Screenshot_1.jpg" },
+      { type: "image", src: "assets/img/portfolio/Brew/Screenshot_2.jpg" },
+      { type: "image", src: "assets/img/portfolio/Brew/Screenshot_3.jpg" },
+    ],
+    tags: ["Game", "Unity", "Jam", "WebGL"],
+    shortDescription: `A 2.5D fishing and coffee game created for CoffeeJam 2024, where players serve drinks using ingredients caught straight from the sea.`,
+    description: `<h3><b><u>CONTEXT</u></b></h3>
+    <p><b>CoffeeJam 2024, 1 week – Team of 3</b></p>
+    <p style="margin-top: -1rem;"><i>Themes: Coffee and Sea.</i></p>
+
+    <h3><b><u>PROJECT</u></b></h3>
+    <p><i>Brew The Catch</i> is a 2.5D fishing and coffee game where players take control of <b>Cuppy</b>, the owner of a seaside coffee shop. To satisfy customers, you must fish ingredients directly from the ocean and serve their favorite drinks before time runs out. Each day ends with a summary of your performance and earnings.</p>
+
+    <h3><b><u>CONTRIBUTIONS</u></b></h3>
+    <p>Served as <u>team lead</u> and contributed to overall game conceptualization.</p>
+    <p>Modeled, rigged, and animated the <u>main character</u> (<i>Cuppy</i>).</p>
+    <p>Implemented all character <u>assets</u> and <u>animations</u> in Unity scenes.</p>
+    <p>Coded the <u>core gameplay loop</u>, including order management, scoring, and client interactions.</p>
+    <p>Co-developed the <u>fishing mechanic</u></p>
+    <p>Created the <u>fish assets</u> and related systems using a flexible <u>Scriptable Object</u>-based design.</p>
+    <p>Polished visuals through <u>shaders</u>, <u>particles</u>, and <u>post-processing</u> effects.</p>
+  `,
+    link: "https://trashpandas-studios.itch.io/brew-the-catch",
+  },
+  {
+    id: "Heracles",
+    title: "Heracles' Last Labour",
+    thumbnail: { type: "image", src: "assets/img/portfolio/Heracles/Thumbnail.png" },
+    mainMedia: { type: "video", src: "assets/img/portfolio/Heracles/Showcase.mp4" },
+    gallery: [
+      { type: "image", src: "assets/img/portfolio/Heracles/Screenshot_1.jpg" },
+      { type: "image", src: "assets/img/portfolio/Heracles/Screenshot_2.jpg" },
+      { type: "image", src: "assets/img/portfolio/Heracles/Screenshot_3.jpg" },
+      { type: "image", src: "assets/img/portfolio/Heracles/Assets_1.jpg" },
+      { type: "image", src: "assets/img/portfolio/Heracles/Assets_2.jpg" },
+      { type: "image", src: "assets/img/portfolio/Heracles/Assets_3.jpg" },
+      { type: "image", src: "assets/img/portfolio/Heracles/Assets_4.jpg" },
+    ],
+    tags: ["Game", "Unity", "Academic"],
+    shortDescription: `A 2D R-Type shoot 'em up following Heracles on his final labour — capturing Cerberus at the gates of the Underworld. (First video game project)`,
+    description: `
+    <h3><b><u>CONTEXT</u></b></h3>
+    <p><b>Academic Project, CTeSP in Game Design and Digital Animation, 2020 – Solo Developer</b></p>
+    <p style="margin-top: -1rem;"><i>Developed a 2D R-Type-inspired pixel art game using Unity.</i></p>
+
+    <h3><b><u>PROJECT</u></b></h3>
+    <p><i>Heracles' Last Labour</i> is a 2D pixel art shoot 'em up inspired by the classic R-Type formula. The player controls Heracles on his journey to capture the mighty Cerberus, fending off the souls of the damned that stand in his way.</p>
+
+    <p>The project requirements included: 2–3 enemy types, 2 stages, a special ability, collectibles, and a boss fight.</p>
+
+    <p>All assets were created under specific color and resolution constraints to emulate retro hardware limitations.</p>
+
+    <h3><b><u>CONTRIBUTIONS</u></b></h3>
+    <p>Conceptualized and designed the entire project.</p>
+    <p>Created all <u>pixel art</u> assets.</p>
+    <p>Developed all <u>game mechanics</u> in <u>Unity</u>.</p>
+    <p>Designed and implemented the <u>boss fight</u>.</p>
+    <p>Developed and integrated the <u>UI</u> system.</p>
+    <p>Handled <u>asset integration</u> and <u>scene setup</u>.</p>
+  `,
+  },
+  {
+    id: "LightsFall",
+    title: "Light's Fall",
+    thumbnail: { type: "image", src: "assets/img/portfolio/LightsFall/Thumbnail.png" },
+    mainMedia: { type: "video", src: "assets/img/portfolio/LightsFall/Trailer.mp4" },
+    gallery: [
+      { type: "image", src: "assets/img/portfolio/LightsFall/Screenshot_1.png" },
+      { type: "image", src: "assets/img/portfolio/LightsFall/Screenshot_2.png" },
+      { type: "image", src: "assets/img/portfolio/LightsFall/Screenshot_3.png" },
+      { type: "image", src: "assets/img/portfolio/LightsFall/Screenshot_4.png" },
+      { type: "image", src: "assets/img/portfolio/LightsFall/Cutscene_1.gif" },
+      { type: "image", src: "assets/img/portfolio/LightsFall/Cutscene_2.gif" },
+      { type: "image", src: "assets/img/portfolio/LightsFall/Cutscene_3.gif" },
+      { type: "image", src: "assets/img/portfolio/LightsFall/Cutscene_4.gif" },
+      { type: "image", src: "assets/img/portfolio/LightsFall/Merch.png" },
+      { type: "image", src: "assets/img/portfolio/LightsFall/Assets_1.png" },
+      { type: "image", src: "assets/img/portfolio/LightsFall/Assets_2.png" },
+    ],
+    tags: ["Game", "Unity", "Academic"],
+    shortDescription: `A 2.5D Platformer switching between parallel worlds, following the twisted adventure of a kleptomanic raccoon shunned from society.`,
+    description: `<h3><b><u>CONTEXT</u></b></h3>
+    <p><b>Academic Project, CTeSP in Game Design and Digital Animation, 2021 – Team of 3</b></p>
+    <p style="margin-top: -1rem;"><i>Developing a Unity game with the themes: 2.5D and Wild Nature.</i></p>
+
+    <h3><b><u>PROJECT</u></b></h3>
+    <p><i>LightsFall</i> is a 2.5D platformer where players take control of <b>Diego</b>, a kleptomaniac raccoon whose greed brings ruin to his world. After unleashing a curse, Diego must traverse a decaying land using a powerful artifact that allows him to switch between two parallel worlds in search of what he believes is rightfully his.</p>
+
+    <p>Featuring hand-crafted environments and platforming mechanics between two parallel worlds, <i>LightsFall</i> challenges players to beat the developers’ best completion time.</p>
+
+    <h3><b><u>CONTRIBUTIONS</u></b></h3>
+    <p>Collaborated in the conceptualization and design of the game.</p>
+    <p>Co-programmed the <u>core mechanics</u> in <u>Unity</u>.</p>
+    <p>Produced hand-drawn <u>tilemaps</u> and environmental assets</p>
+    <p>Conceptualized and coded <u>enemy behaviors</u></u>
+    <p>Designed and produced the <u>UI</u> and menu flow.</p>
+    <p>Produced 12 <u>mini cutscenes</u> for narrative transitions using <u>Photoshop</u> and <u>After Effects</u>.</p>
+    <p>Conceptualized potential <u>merchandise</u> and promotional materials.</p>
+    <p>Contributed to <u>scene assembly</u> in Unity.</p>
+  `,
+    link: "https://trashpandas-studios.itch.io/lights-fall",
+  },
+  {
+    id: "Kirves",
+    title: "Kirves",
+    thumbnail: { type: "image", src: "assets/img/portfolio/Kirves/Thumbnail.jpg" },
+    mainMedia: { type: "video", src: "assets/img/portfolio/Kirves/Showcase_1.mp4" },
+    gallery: [
+      { type: "video", src: "assets/img/portfolio/Kirves/Showcase_2.mp4" },
+      { type: "image", src: "assets/img/portfolio/Kirves/Screenshot_1.jpg" },
+      { type: "image", src: "assets/img/portfolio/Kirves/Screenshot_2.png" },
+      { type: "image", src: "assets/img/portfolio/Kirves/Screenshot_3.jpg" },
+    ],
+    tags: ["3D Animation", "MoCap", "Academic"],
+    shortDescription: `A 3D MoCap stylized animation portraying the fractured world of a Finnish young man and his uncle.`,
+    description: `<h3><b><u>CONTEXT</u></b></h3>
+    <p><b>Academic Project, Bachelor in Multimedia, 2024 – Team of 3</b></p>
+    <p style="margin-top: -1rem;"><i>Short film created using 3D Animation and Motion Capture.</i></p>
+
+    <h3><b><u>PROJECT</u></b></h3>
+      <p><i>Kirves</i> is a 3-minute short 3D film set in a rural Finnish town. It follows Paahenkilo, a young unmedicated man haunted by his own delusions, and his uncle, Pijany. When Pijany reveals the existence of a mysterious lottery prize, the line between reality and hallucination begins to blur, offering Paahenkilo a possible escape from the suffocating monotony of his life.</p>
+
+      <p>The project originally followed a different art direction and narrative, which were later reworked after the team was formed.</p>
+
+      <p>All assets were created collaboratively, animated through a blend of MoCap and keyframing.</p>
+
+    <h3><b><u>CONTRIBUTIONS</u></b></h3>
+      <p>Co-developed the concept and direction of the film.</p>
+      <p>Created <u>concept art</u> for redesigned characters.</p>
+      <p>Modeled, textured, rigged, and built <u>blendshapes</u> for the "uncle" character.</p>
+      <p>Performed <u>lip sync</u> and <u>MoCap cleanup</u> in <u>MotionBuilder</u> for the "uncle".</p>
+      <p>Created <u>forest assets</u> and terrain.</p>
+      <p>Assembled and rendered scenes in <u>Maya</u>.</p>
+      <p>Set up <u>shaders</u> and <u>lighting</u> across scenes.</p>
+      <p>Designed, edited, and implemented the <u>soundscape</u>.</p>
+  `,
+  },
   {
     id: "Strayed",
     title: "Strayed In Space",
@@ -91,7 +234,7 @@ const portfolioItems = [
       { type: "image", src: "assets/img/portfolio/Reality/Screenshot_3.jpg" },
       { type: "image", src: "assets/img/portfolio/Reality/Screenshot_4.png" },
     ],
-    tags: ["3D/2D Animation"],
+    tags: ["3D/2D Animation", "Academic"],
     shortDescription: `Large-scale animation blending 2D and 3D, portraying the <i>City of the Future</i>. Created in partnership with OCUBO and projected onto the walls of the <i>Alfândega do Porto</i>.`,
     description: `<h3><b><u>CONTEXT</u></b></h3>
     <p><b>Academic Project, partnership with OCUBO, Bachelor in Multimedia, 2024 – Team of 4</b></p>
@@ -125,7 +268,7 @@ const portfolioItems = [
       { type: "image", src: "assets/img/portfolio/Biomek/Screenshot_4.jpg" },
       { type: "video", src: "assets/img/portfolio/Biomek/Trailer.mp4" },
     ],
-    tags: ["3D Animation", "Design"],
+    tags: ["3D Animation", "Design", "Academic"],
     shortDescription: `Designing and creating the visual identity of a fictional band "BIOMEK"`,
     description: `<h3><b><u>CONTEXT</u></b></h3>
     <p><b>Academic Project, Bachelor in Multimedia, 2023 – Solo</b></p>
@@ -290,7 +433,7 @@ const portfolioItems = [
   {
     id: "CrushedDreams",
     title: "Crushed Dreams",
-    thumbnail: { type: "image", src: "assets/img/portfolio/CrushedDreams/Thumbnail.jpg" },
+    thumbnail: { type: "image", src: "assets/img/portfolio/CrushedDreams/Thumbnail.png" },
     mainMedia: { type: "video", src: "assets/img/portfolio/CrushedDreams/Showcase.mp4" },
     gallery: [
       { type: "image", src: "assets/img/portfolio/CrushedDreams/Screenshot_1.png" },

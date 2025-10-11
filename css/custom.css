@@ -126,6 +126,12 @@
   }
 }
 
+video {
+  width: 100%;
+  aspect-ratio: 16 / 9; /* default aspect ratio */
+  object-fit: contain;
+}
+
 .extra-item {
   max-height: 0;
   opacity: 0;

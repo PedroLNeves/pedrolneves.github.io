@@ -226,6 +226,7 @@ function generatePortfolioModals() {
     const slides = carouselEl.querySelectorAll(".carousel-item");
     slides.forEach((slide) => {
       const video = slide.querySelector("video[data-src]");
+
       if (!video || video.querySelector("source")) return;
 
       const source = document.createElement("source");
