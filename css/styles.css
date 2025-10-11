@@ -5979,7 +5979,7 @@ fieldset:disabled .btn {
 /* Mobile adjustments */
 @media (max-width: 768px) {
   .carousel {
-    max-height: 30vh; /* smaller height on mobile */
+    max-height: 40vh; /* smaller height on mobile */
   }
 }
 
