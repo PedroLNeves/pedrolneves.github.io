@@ -28,6 +28,8 @@
     <link href="css/custom.css" rel="stylesheet" />
   </head>
 
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
   <body id="page-top">
     <div id="loading-screen">
       <div class="spinner"></div>
@@ -272,7 +274,10 @@
             <label for="message">Your Message <span class="text-danger">*</span></label>
           </div>
 
-          <button class="btn btn-primary btn-xl" type="submit">Send Message</button>
+          <div class="d-flex align-items-center mb-3 flex-wrap">
+            <button class="btn btn-primary btn-xl me-3" type="submit">Send Message</button>
+            <div class="g-recaptcha" data-sitekey="6Lc5PukrAAAAACDiBMax_vBg9oL4CrWoNaPE68H4"></div>
+          </div>
         </form>
       </div>
     </section>
@@ -341,10 +346,31 @@
 
       document.getElementById("contact-form").addEventListener("submit", function (event) {
         event.preventDefault();
+
+        // Check if reCAPTCHA is completed
+        const recaptchaResponse = grecaptcha.getResponse();
+        if (!recaptchaResponse) {
+          alert("Please complete the reCAPTCHA before sending.");
+          return;
+        }
+
+        // Optional: disable submit button to prevent multiple clicks
+        const submitBtn = this.querySelector("button[type=submit]");
+        submitBtn.disabled = true;
+
         emailjs
           .sendForm("service_9vs8a2a", "template_7s3phwy", this)
-          .then(() => alert("Message sent successfully!"))
-          .catch(() => alert("Failed to send message. Please try again."));
+          .then(() => {
+            alert("Message sent successfully!");
+            this.reset();
+            grecaptcha.reset(); // reset reCAPTCHA
+          })
+          .catch(() => {
+            alert("Failed to send message. Please try again.");
+          })
+          .finally(() => {
+            submitBtn.disabled = false;
+          });
       });
     </script>
 

@@ -166,6 +166,17 @@ video {
   object-fit: contain;
 }
 
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .carousel-item img,
+  .carousel-item video {
+    left: 51%;
+    max-width: 30vh;
+    transform: translate(-50%, -70%);
+    max-height: 20vh; /* smaller height on mobile */
+  }
+}
+
 .video-wrapper {
   display: block;
   width: 100%;
