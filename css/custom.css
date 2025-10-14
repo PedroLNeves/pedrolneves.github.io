@@ -50,23 +50,21 @@
 }
 
 .overlay-image {
-  position: relative;
-  margin-top: -20vh;
-  transform: translateX(19%);
-  top: 84px; /* adjust vertical position */
-  right: 20vw; /* adjust horizontal position */
-  width: 100vw; /* adjust size */
-  z-index: 10; /* ensures it’s above the footer content */
+  position: relative; /* absolute so it doesn’t affect page flow */
+  bottom: 0; /* stick to bottom of parent/container */
+  top: 11vh;
+  left: 50%; /* center horizontally */
+  transform: translateX(-50%);
+  max-width: 100%; /* prevent it from exceeding parent width */
+  height: auto;
+  z-index: 10;
 }
 
 /* Mobile adjustments */
 @media (max-width: 768px) {
   .overlay-image {
-    width: 200%; /* maybe slightly bigger to cover mobile view */
-    margin-top: -10vh;
-    height: auto;
-    top: 6vh;
-    transform: translateX(-15%);
+    width: 95vw;
+    top: 5.5vh;
   }
 }
 
