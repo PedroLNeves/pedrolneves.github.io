@@ -18,6 +18,7 @@ const portfolioItems = [
     description: `<h3><b><u>CONTEXT</u></b></h3>
     <p><b>CoffeeJam 2024, 1 week – Team of 3</b></p>
     <p style="margin-top: -1rem;"><i>Themes: Coffee and Sea.</i></p>
+    <p style="margin-top: -1rem;"><i>REFINED POST JAM</i></p>
 
     <h3><b><u>PROJECT</u></b></h3>
     <p><i>Brew The Catch</i> is a 2.5D fishing and coffee game where players take control of <b>Cuppy</b>, the owner of a seaside coffee shop. To satisfy customers, you must fish ingredients directly from the ocean and serve their favorite drinks before time runs out. Each day ends with a summary of your performance and earnings.</p>
