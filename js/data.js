@@ -268,7 +268,7 @@ const portfolioItems = [
       { type: "image", src: "assets/img/portfolio/Biomek/Screenshot_4.jpg" },
       { type: "video", src: "assets/img/portfolio/Biomek/Trailer.mp4" },
     ],
-    tags: ["3D Animation", "Design", "Academic"],
+    tags: ["Design", "Academic"],
     shortDescription: `Designing and creating the visual identity of a fictional band "BIOMEK"`,
     description: `<h3><b><u>CONTEXT</u></b></h3>
     <p><b>Academic Project, Bachelor in Multimedia, 2023 – Solo</b></p>
@@ -400,11 +400,11 @@ const portfolioItems = [
     thumbnail: { type: "image", src: "assets/img/portfolio/NightShift/Thumbnail.png" },
     mainMedia: { type: "video", src: "assets/img/portfolio/NightShift/Showcase.mp4" },
     gallery: [
-      { type: "image", src: "assets/img/portfolio/NightShift/Screenshot_1.png" },
-      { type: "image", src: "assets/img/portfolio/NightShift/Screenshot_2.png" },
-      { type: "image", src: "assets/img/portfolio/NightShift/Screenshot_3.png" },
-      { type: "image", src: "assets/img/portfolio/NightShift/Screenshot_4.png" },
-      { type: "image", src: "assets/img/portfolio/NightShift/Screenshot_5.png" },
+      { type: "image", src: "assets/img/portfolio/NightShift/Screenshot_1.jpg" },
+      { type: "image", src: "assets/img/portfolio/NightShift/Screenshot_2.jpg" },
+      { type: "image", src: "assets/img/portfolio/NightShift/Screenshot_3.jpg" },
+      { type: "image", src: "assets/img/portfolio/NightShift/Screenshot_4.jpg" },
+      { type: "image", src: "assets/img/portfolio/NightShift/Screenshot_5.jpg" },
     ],
     tags: ["Game", "Unity", "Jam", "WebGL", "48h", "1st"],
     shortDescription: `A 3D local Co-Op survival horror game, developed entirely in 48 hours for the MAD Game Jam 2025. Players must coordinate to complete their tasks and face different foes until the end of their shift.`,
@@ -424,8 +424,9 @@ const portfolioItems = [
     <p><u>Directed</u> the project and art direction as team lead.</p>
     <p>Implemented the <u>core gameplay loop</u>.</p>
     <p>Contributed to the implementation of the <u>local Co-Op mechanics</u>.</p>
-    <p>Solved Co-Op related challenges with <u>creative solutions</u> (spatial sound and 3D sprite rendering).</p>
-    <p>Developed the AI for the different enemies.</p>
+    <p>Solved Co-Op related challenges with <u>creative solutions</u> (spatial sound and 3D space sprites).</p>
+    <p>Developed the <u>AI</u> for the different enemies.</p>
+    <p><u>Optimization</u> for <u>WebGL</u> port</p>
     <p>Polished visuals with <u>particle systems</u>, <u>lighting setup</u>, <u>custom shaders</u>, and <u>post-processing</u>.</p>
     `,
     link: "https://trashpandas-studios.itch.io",
@@ -466,7 +467,7 @@ const portfolioItems = [
     id: "SweetStakes",
     title: "Sweet Stakes",
     thumbnail: { type: "image", src: "assets/img/portfolio/SweetStakes/Thumbnail.png" },
-    mainMedia: { type: "video", src: "assets/img/portfolio/video_placeholder.mp4" },
+    mainMedia: { type: "video", src: "assets/img/portfolio/SweetStakes/Showcase.mp4" },
     gallery: [
       { type: "image", src: "assets/img/portfolio/SweetStakes/Screenshot_1.jpg" },
       { type: "image", src: "assets/img/portfolio/SweetStakes/Screenshot_2.png" },
