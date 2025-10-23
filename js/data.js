@@ -230,6 +230,8 @@ const portfolioItems = [
       { type: "video", src: "assets/img/portfolio/Reality/Showcase_1.mp4" },
       { type: "video", src: "assets/img/portfolio/Reality/Showcase_2.mp4" },
       { type: "video", src: "assets/img/portfolio/Reality/Trailer.mp4" },
+      { type: "video", src: "assets/img/portfolio/Reality/Rig_Showcase_1.mp4" },
+      { type: "image", src: "assets/img/portfolio/Reality/Rig_Showcase_2.png" },
       { type: "image", src: "assets/img/portfolio/Reality/Screenshot_1.jpg" },
       { type: "image", src: "assets/img/portfolio/Reality/Screenshot_2.jpg" },
       { type: "image", src: "assets/img/portfolio/Reality/Screenshot_3.jpg" },

@@ -253,6 +253,8 @@ function generatePortfolioModals() {
     });
 
     carouselEl.addEventListener("slid.bs.carousel", (event) => {
+      const activeIndex = Array.from(carouselEl.querySelectorAll(".carousel-item")).indexOf(event.relatedTarget);
+      history.replaceState(null, "", `#${modalId}-${activeIndex}`);
       const activeSlide = event.relatedTarget;
       const img = activeSlide.querySelector("img[data-src]");
       if (img && !img.src) img.src = img.dataset.src;
@@ -339,10 +341,121 @@ function generatePortfolioModals() {
   });
 }
 
-// Initialize
 document.addEventListener("DOMContentLoaded", () => {
+  // Close all modals on load to prevent stacking
+  document.querySelectorAll(".modal.show").forEach((modalEl) => {
+    const modal = bootstrap.Modal.getInstance(modalEl) || new bootstrap.Modal(modalEl);
+    modal.hide();
+  });
   populateSection("#portfolio", highlights);
   populateSection("#games", games);
   populateSection("#misc", other);
   generatePortfolioModals();
+
+  // --- Direct modal linking ---
+  // --- Direct modal linking ---
+  const openModalFromHash = () => {
+    const hash = window.location.hash.replace("#", "");
+    if (!hash) return;
+
+    const [modalId, slideIndexStr] = hash.split("-");
+    const slideIndex = parseInt(slideIndexStr, 10);
+
+    const modalEl = document.getElementById(modalId);
+    if (modalEl && modalEl.classList.contains("portfolio-modal")) {
+      const modal = new bootstrap.Modal(modalEl);
+      modal.show();
+
+      const carouselEl = modalEl.querySelector(`#thumbCarousel-${modalId}`);
+      if (carouselEl && !isNaN(slideIndex)) {
+        const carousel = bootstrap.Carousel.getInstance(carouselEl) || new bootstrap.Carousel(carouselEl);
+        carousel.to(slideIndex);
+
+        // Update preview modal to match this slide
+        const slides = carouselEl.querySelectorAll(".carousel-item");
+        const activeSlide = slides[slideIndex];
+        const thumb = activeSlide.querySelector(".thumb-img");
+
+        if (thumb) {
+          const type = thumb.dataset.type;
+          const src = thumb.dataset.src;
+          const previewContent = document.getElementById("previewContent");
+          const previewModalEl = document.getElementById("previewModal");
+
+          if (previewContent && previewModalEl) {
+            // Clear previous content
+            previewContent.innerHTML = "";
+
+            // Create new media element
+            let newMedia;
+            if (type === "image") {
+              newMedia = document.createElement("img");
+              newMedia.src = src;
+              newMedia.className = "img-fluid";
+            } else {
+              newMedia = document.createElement("video");
+              newMedia.className = "img-fluid";
+              newMedia.controls = true;
+              newMedia.muted = true;
+              newMedia.playsInline = true;
+              newMedia.autoplay = true;
+              const source = document.createElement("source");
+              source.src = src;
+              source.type = "video/mp4";
+              newMedia.appendChild(source);
+              newMedia.play().catch(() => {});
+            }
+
+            previewContent.appendChild(newMedia);
+
+            // Show the preview modal
+            const previewModal = new bootstrap.Modal(previewModalEl);
+            previewModal.show();
+
+            // Add backdrop manually (like your thumbnail click)
+            const backdrop = document.createElement("div");
+            backdrop.className = "modal-backdrop preview-modal-backdrop fade show";
+            document.body.appendChild(backdrop);
+
+            // Cleanup on close
+            previewModalEl.addEventListener(
+              "hidden.bs.modal",
+              () => {
+                if (type === "video") {
+                  newMedia.pause();
+                  newMedia.currentTime = 0;
+                }
+                const b = document.querySelector(".preview-modal-backdrop");
+                if (b) b.remove();
+              },
+              { once: true }
+            );
+          }
+        }
+      }
+    }
+  };
+
+  // Open if hash exists on load
+  openModalFromHash();
+
+  // Handle when user clicks an item to update URL
+  document.querySelectorAll(".portfolio-item").forEach((item) => {
+    item.addEventListener("click", () => {
+      const targetId = item.getAttribute("data-bs-target").replace("#", "");
+      history.replaceState(null, "", `#${targetId}`);
+    });
+  });
+
+  // Clear hash on modal close
+  document.querySelectorAll(".portfolio-modal").forEach((modalEl) => {
+    modalEl.addEventListener("hidden.bs.modal", () => {
+      if (window.location.hash === `#${modalEl.id}`) {
+        history.replaceState(null, "", " ");
+      }
+    });
+  });
+
+  // If hash changes manually (like navigating back)
+  window.addEventListener("hashchange", openModalFromHash);
 });
