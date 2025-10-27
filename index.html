@@ -70,6 +70,7 @@
             <li class="nav-item mx-0 mx-lg-1">
               <a
                 class="nav-link py-3 px-0 px-lg-3 rounded"
+                id="Resume"
                 href="assets\img\portfolio\PedroLopesNeves_Resume.pdf"
                 target="_blank"
                 >Resume</a
@@ -82,6 +83,13 @@
         </div>
       </div>
     </nav>
+
+    <script>
+      // Redirect /#Resume to the actual PDF file
+      if (window.location.hash === "#Resume") {
+        window.location.href = "assets/img/portfolio/PedroLopesNeves_Resume.pdf";
+      }
+    </script>
 
     <!-- Masthead-->
     <header class="masthead text-white text-center" style="position: relative">
